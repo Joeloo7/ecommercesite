@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-    <img src="{{category.image.url}}" height="400px" width="100%">
-</div>
 <div class="products-box">
         <div class="container">
+            {% if products %}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
@@ -16,7 +14,7 @@
 
 
         <div class="row special-list">
-            {% for j in category.products.all %}
+            {% for j in products %}
     <div class="col-lg-3 col-md-6 special-grid best-seller">
 
         <div class="products-single fix">
@@ -39,8 +37,10 @@
 
     </div>
             {% endfor %}
+            {% else %}
+            <h2>no results</h2>
+            {% endif %}
     </div>
 
         </div>
-
 {% endblock %}
